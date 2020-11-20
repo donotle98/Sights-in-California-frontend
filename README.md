@@ -1,3 +1,19 @@
+# Sights in California
+
+## Introduction
+
+<h4>Sights in California is a fairly simple app that allows users to find sights to see and things to do in California. Users are able to search among the 50 sights that are already there in order to find one in a city thy are in or are planning to see
+
+<h4>Users can sign up and login using a simple form, once logged in users can bookmark sights they want to see and see the sights that are located in their city.
+
+<h5>NOT MEANT TO BE USED BY OTHER DEVELOPERS</h5>
+
+<h3>This app was created using React, CSS, Node, Express, PostgreSQL</h3>
+
+<h4>Each component will be in src/components</h4>
+<h4>The home is the landing page where users will first see</h4>
+<h4>AppRouter controls the routes of the different components</h4>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
