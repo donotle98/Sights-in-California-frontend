@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Righteous", cursive;
+    background-color: #181818;
+}
+.intro-header {
+    background: url("../../images/hike-redwoods.jpeg");
+    height: 568px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    scroll-behavior: smooth;
+}
+.intro-header h1 {
+    color: white;
+    text-align: center;
+    font-size: 27px;
+    text-shadow: 2px 2px black;
+}
+.homeroute hr {
+    margin-bottom: 30px;
+}
+.header-p {
+    margin: 30px 30px 5px 100px;
+    font-family: "Righteous", cursive;
+    color: white;
+    text-align: right;
+    font-size: 20px;
+    line-height: 55px;
+    text-shadow: 2px 2px black;
+}
+.scroll-down {
+    color: orange;
+    font-size: 35px;
+    bottom: 10px;
+    width: 40px;
+    margin-left: 225px;
+    margin-top: 60px;
+}
+.scroll-down a {
+    text-decoration: none;
+    color: orange;
+}
+.list-card {
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 15px;
+    border: solid 2px white;
+    border-radius: 20px;
+    width: 230px;
+}
+.list-card h2 {
+    margin-bottom: 10px;
+}
+.list-card h4 {
+    margin-bottom: 10px;
+}
+.list-card p {
+    margin-bottom: 10px;
+}
+.list-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+.list-card a {
+    text-decoration: none;
+    color: orange;
+}
+.filter-btn {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.filter-btn button {
+    color: black;
+    box-shadow: 0 0 0 #eee;
+    margin-bottom: 0px;
+}
+.filter-form {
+    color: white;
+}
+.filter-form form {
+    margin: auto;
+    margin-bottom: 50px;
+    width: 200px;
+}
+.search-by {
+    display: flex;
+    flex-direction: column;
+}
+.filter-error {
+    text-align: center;
+    margin: 30px;
+    margin-bottom: 200px;
+    color: white;
+}
+.form-label {
+    font-size: 1.2rem;
+    margin-top: 0.7rem;
+    margin-bottom: 1rem;
+    display: block;
+    transition: all 0.3s;
+    transform: translateY(0rem);
+}
+.form-input {
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 0.2rem;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 90%;
+    display: block;
+    border-bottom: 0.3rem solid transparent;
+    transition: all 0.3s;
+    font-family: "Righteous", cursive;
+}
+.form-input:placeholder-shown + .form-label {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(-4rem);
+    transform: translateY(-4rem);
+}
+.filter-controls {
+    display: flex;
+    flex-direction: column;
+    width: 140px;
+    margin: auto;
+}
+.apply-btn {
+    border: none;
+    background-color: transparent;
+    color: orange;
+    font-size: 16px;
+    border: solid 2px orange;
+    padding: 5px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.clear-btn {
+    border: none;
+    background-color: transparent;
+    color: orange;
+    font-size: 16px;
+    border: solid 2px orange;
+    padding: 5px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.apply-btn:hover,
+.clear-btn:hover {
+    border: dotted peachpuff;
+    transition: 0.3s;
+    font-size: 19px;
+    padding: 8px;
+}
+.apply-btn:focus,
+.clear-btn:focus {
+    outline: none;
+}
+@media all and (min-width: 800px) {
+    .intro-header {
+        background: url("../../images/oracle-park.jpeg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 0px -100px;
+    }
+    .intro-header h1 {
+        text-align: left;
+        padding-left: 45px;
+        font-size: 45px;
+    }
+    .scroll-down {
+        opacity: 0;
+    }
+    .header-p {
+        font-size: 22px;
+    }
+    .list {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+    #filter {
+        display: flex;
+        flex-direction: row;
+        width: 500px;
+    }
+    .filter-controls {
+        width: 280px;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        height: 50px;
+    }
+    .apply-btn {
+        margin: 0px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}

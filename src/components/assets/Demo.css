@@ -1,0 +1,56 @@
+.demo-page {
+    color: white;
+}
+
+.demo-page h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: orange;
+}
+.demo-page .back-div {
+    margin-bottom: 50px;
+}
+
+.demo-page h2 {
+    text-align: center;
+    margin-top: 45px;
+}
+.demo-page a {
+    color: orange;
+    cursor: pointer;
+}
+.demo-page p {
+    text-align: center;
+    margin: 15px;
+    line-height: 30px;
+    font-size: 18px;
+}
+.user-page-img {
+    margin-top: 30px;
+    height: 160px;
+    background-image: url("../../images/user-page.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+@media all and (min-width: 750px) {
+    .demo-page h1 {
+        margin-bottom: 60px;
+    }
+    .demo-page p {
+        width: 550px;
+        margin: auto;
+        font-size: 20px;
+    }
+    .demo-page h2 {
+        margin-bottom: 40px;
+    }
+    .user-page-img {
+        width: 600px;
+        margin: auto;
+        height: 250px;
+        border: solid 2px white;
+        margin-bottom: 40px;
+    }
+}

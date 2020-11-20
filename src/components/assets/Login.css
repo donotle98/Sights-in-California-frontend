@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+.login-div {
+    overflow: hidden;
+}
+.login-header {
+    text-align: center;
+    color: white;
+    font-family: "Righteous", cursive;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.login-page {
+    text-align: center;
+    overflow-x: hidden;
+}
+.login-page form {
+    background: url("../../images//griffith-observatory.jpeg");
+    background-size: cover;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 320px;
+    border-radius: 9px;
+    padding: 4vh;
+}
+.login-page a {
+    text-decoration: none;
+    color: black;
+}
+.login-div h1 {
+    margin: 5vh 0 7vh 0;
+    font-size: 45px;
+}
+.login-page label {
+    padding: 2vh;
+    font-size: 25px;
+    color: white;
+    margin-top: 20px;
+    text-shadow: 2px 2px black;
+}
+.login-page input {
+    border: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: rgba(62, 35, 35, 0.86);
+    border-radius: 50px;
+    color: white;
+}
+.login-page button {
+    margin: auto;
+    width: 110px;
+}
+.pw-input {
+    margin-bottom: 25px;
+}
+
+.button {
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 2px;
+    position: relative;
+    background-color: #4a4a4a;
+    border: none;
+    color: white;
+    padding: 10px;
+    transition-duration: 0.4s;
+    overflow: hidden;
+    box-shadow: 0 4px 15px #193047;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+.button:hover {
+    background-color: white;
+    box-shadow: 0px 2px 10px 5px orange;
+    color: black;
+}
+.button:after {
+    content: "";
+    background-color: orange;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s;
+}
+.button:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}
+.button:focus {
+    outline: 0;
+}
+
+.back-div {
+    text-align: center;
+    margin-top: 10px;
+}
+.back-div button {
+    background-color: transparent;
+    border: none;
+    color: red;
+    font-size: 25px;
+}
+.user-matched {
+    margin-top: 15px;
+    text-align: center;
+    color: white;
+}
+.confirm-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 0 auto;
+}
+.confirm-btn {
+    flex: 1 1 auto;
+    margin: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+    box-shadow: 0 0 15px #eee;
+    border-radius: 10px;
+    background-image: linear-gradient(
+        to right,
+        #f6d365 0%,
+        #fda085 51%,
+        #f6d365 100%
+    );
+}
+.confirm-btn:focus {
+    outline: none !important;
+}
+
+.confirm-btn:hover {
+    background-position: right center;
+}
+
+.user-not-match {
+    text-align: center;
+    color: red;
+}
+.input-empty {
+    text-align: center;
+    font-size: 12px;
+    color: red;
+    margin-bottom: 10px;
+}
+
+@media all and (min-width: 800px) {
+    .login-div h1 {
+        font-size: 55px;
+        margin-bottom: 0;
+    }
+    .login-page label {
+        font-size: 35px;
+        margin-top: 60px;
+        margin-bottom: 0;
+    }
+    .login-page input {
+        margin: auto;
+        width: 300px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 25px;
+    }
+    .login-page form {
+        padding: 1vh;
+        width: 400px;
+        height: 550px;
+    }
+    .login-page button {
+        margin-top: 40px;
+    }
+    .username {
+        padding-top: 500px;
+    }
+    .login-back button {
+        font-size: 25px;
+        position: absolute;
+        top: 80px;
+        left: 35%;
+    }
+    .user-not-match h1 {
+        font-size: 25px;
+    }
+}

@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+.user-page header {
+    text-align: center;
+    color: white;
+    background: url("../../images/la-atnight.jpeg");
+    background-size: cover;
+    height: 250px;
+}
+.user-page h1 {
+    padding-top: 25px;
+}
+.submit-sect {
+    text-align: center;
+    margin-top: 45px;
+}
+.user-page hr {
+    margin-bottom: 25px;
+}
+.submit-link a {
+    text-decoration: none;
+    color: orange;
+    border: solid 1px orange;
+    border-radius: 10px;
+    padding: 9px;
+    transition: 0.6s;
+    margin-right: 10px;
+}
+.submit-link a:hover {
+    color: white;
+    border-color: white;
+    transition: 0.6s;
+    filter: drop-shadow(3px 5px 5px rgba(255, 255, 255, 0.45));
+}
+.no-sights {
+    margin: 20px;
+    margin-bottom: 20px;
+    color: white;
+}
+.no-sights p {
+    line-height: 25px;
+}
+.current-sights {
+    text-align: center;
+    text-decoration: underline;
+    color: white;
+    margin-bottom: 30px;
+}
+.all-sights {
+    text-align: center;
+    text-decoration: underline;
+    color: white;
+    margin-bottom: 30px;
+}
+.bookmark-btn {
+    font-family: "Righteous", cursive;
+    background: transparent;
+    border: none;
+    color: orange;
+    font-size: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+@media all and (min-width: 800px) {
+    .user-page header {
+        background-position: 0px -240px;
+        height: 300px;
+    }
+    .user-page h1 {
+        font-size: 45px;
+    }
+    .user-page h2 {
+        font-size: 35px;
+    }
+    .no-sights {
+        width: 400px;
+        margin: auto;
+        margin-bottom: 30px;
+    }
+    .no-sights p {
+        font-size: 20px;
+        line-height: 35px;
+    }
+    .current-sights,
+    .all-sights {
+        margin-bottom: 50px;
+    }
+}

@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+.filter {
+    filter: drop-shadow(3px 10px 15px rgba(0, 0, 0, 0.45));
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+.filter button {
+    font-family: "Righteous", cursive;
+    height: 40px;
+    width: 100px;
+    background: transparent;
+    font-weight: bold;
+    color: orange;
+    font-size: 14px;
+    border: solid 1px;
+    margin: 0px;
+    padding: 0;
+    stroke: black;
+    outline: none;
+    transition: 0.5s;
+}
+.filter :nth-child(1) {
+    border-radius: 20px 0 0 20px;
+}
+.filter :nth-child(3) {
+    border-radius: 0 20px 20px 0;
+}
+.filter button:hover {
+    cursor: pointer;
+    color: white;
+    transition: 0.5s;
+    filter: drop-shadow(3px 3px 5px rgb(255, 255, 255));
+}
+.filter button:active {
+    filter: none;
+    transform: scale(0.95);
+}
+.filter button:focus {
+    color: white;
+    transform: scale(0.95);
+    filter: drop-shadow(3px 3px 5px rgb(255, 255, 255));
+}
+
+@media all and (min-width: 800px) {
+    .filter button {
+        width: 140px;
+        height: 50px;
+        font-size: 17px;
+    }
+}

@@ -1,0 +1,62 @@
+.about-page h1 {
+    color: white;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    text-shadow: 2px 2px black;
+}
+.about-page h3 {
+    padding-top: 15px;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px black;
+}
+.about-tag {
+    color: white;
+    text-align: center;
+    margin: auto;
+    line-height: 6vh;
+    width: 280px;
+    text-shadow: 2px 2px black;
+}
+.footer-sect {
+    text-align: center;
+    margin-top: 45px;
+}
+.footer-sect a {
+    text-decoration: none;
+    color: orange;
+    text-shadow: 2px 2px black;
+}
+.github {
+    margin-right: 15px;
+}
+@media all and (min-width: 800px) {
+    .about-page {
+        height: 100%;
+    }
+    #image-slider {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        margin: auto;
+        justify-content: center;
+    }
+    #image-slider img {
+        margin: 5px;
+    }
+    .back-div button {
+        font-size: 25px;
+        position: absolute;
+        top: 40px;
+        left: 30%;
+    }
+    .about-tag {
+        width: 700px;
+    }
+    .about-tag p {
+        font-size: 17px;
+    }
+    .footer-sect {
+        margin-top: 15px;
+    }
+}
