@@ -17,7 +17,7 @@ class App extends Component {
     };
     fetchSightList = () => {
         console.log("sights are being fetched");
-        fetch("http://localhost:8000/api/sights")
+        fetch("https://frozen-reaches-24867.herokuapp.com/api/sights/")
             .then((res) => res.json())
             .then((sight) => {
                 this.setState({
@@ -45,7 +45,7 @@ class App extends Component {
         });
     };
     handleAddUser = (user) => {
-        fetch("http://localhost:8000/api/users/", {
+        fetch("https://frozen-reaches-24867.herokuapp.com/api/users/", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -66,7 +66,7 @@ class App extends Component {
             });
     };
     handleAddSight = (sight) => {
-        fetch("http://localhost:8000/api/sights", {
+        fetch("https://frozen-reaches-24867.herokuapp.com/api/sights/", {
             method: "POST",
             header: {
                 "content-type": "application/json",

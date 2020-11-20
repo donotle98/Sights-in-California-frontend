@@ -17,7 +17,9 @@ class UserPage extends Component {
         showingBookmarkedSights: false,
     };
     fetchCitySights = () => {
-        fetch(`http://localhost:8000/api/sights/${this.context.city}`)
+        fetch(
+            `https://frozen-reaches-24867.herokuapp.com/api/sights/${this.context.city}`
+        )
             .then((res) => res.json())
             .then((sights) => {
                 this.setState({
@@ -26,7 +28,9 @@ class UserPage extends Component {
             });
     };
     fetchBookmarkedSights = () => {
-        fetch(`http://localhost:8000/api/bookmarks/${this.context.first_name}`)
+        fetch(
+            `https://frozen-reaches-24867.herokuapp.com/api/bookmarks/${this.context.first_name}`
+        )
             .then((res) => res.json())
             .then((bookmarks) => {
                 this.setState({
@@ -35,9 +39,12 @@ class UserPage extends Component {
             });
     };
     handleDeleteBookmarks = (sightid) => {
-        fetch(`http://localhost:8000/api/bookmarks/${sightid}`, {
-            method: "DELETE",
-        }).then(() => {
+        fetch(
+            `https://frozen-reaches-24867.herokuapp.com/api/bookmarks/${sightid}`,
+            {
+                method: "DELETE",
+            }
+        ).then(() => {
             this.fetchBookmarkedSights();
         });
     };
@@ -47,7 +54,7 @@ class UserPage extends Component {
             first_name,
             sightid,
         };
-        fetch("http://localhost:8000/api/bookmarks/", {
+        fetch("https://frozen-reaches-24867.herokuapp.com/api/bookmarks/", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

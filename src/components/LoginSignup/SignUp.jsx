@@ -39,7 +39,9 @@ class SignUp extends Component {
     };
     handlePostNewUser = () => {
         const { username, first_name, password, city } = this.state;
-        fetch(`http://localhost:8000/api/users/${username}`)
+        fetch(
+            `https://frozen-reaches-24867.herokuapp.com/api/users/${username}`
+        )
             .then((res) => res.json())
             .then((user) => {
                 if (!user) {

@@ -78,12 +78,15 @@ class Login extends Component {
         const { username } = this.state;
         const token = localStorage.getItem("token");
         this.setState({ signin_error: "" });
-        fetch(`http://localhost:8000/api/login/${username}`, {
-            method: "GET",
-            headers: {
-                Authorization: "Bearer " + token,
-            },
-        })
+        fetch(
+            `https://frozen-reaches-24867.herokuapp.com/api/login/${username}`,
+            {
+                method: "GET",
+                headers: {
+                    Authorization: "Bearer " + token,
+                },
+            }
+        )
             .then((res) => res.json())
             .then((user) => {
                 if (!user.first_name) {
