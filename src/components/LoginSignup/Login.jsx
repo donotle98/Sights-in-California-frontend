@@ -58,7 +58,7 @@ class Login extends Component {
             });
         } else {
             this.setState({ signin_error: "" });
-            fetch("http://localhost:8000/api/login", {
+            fetch("https://frozen-reaches-24867.herokuapp.com/api/login", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
