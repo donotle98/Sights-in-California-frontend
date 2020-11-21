@@ -113,6 +113,7 @@ class UserPage extends Component {
                                     key={x}
                                     sight={sight}
                                     handleAddBookmarks={this.handleAddBookmarks}
+                                    userBookmarks={this.state.userBookmarks}
                                 />
                             );
                         })}
@@ -133,6 +134,7 @@ class UserPage extends Component {
                                         handleAddBookmarks={
                                             this.handleAddBookmarks
                                         }
+                                        userBookmarks={this.state.userBookmarks}
                                     />
                                 );
                             });

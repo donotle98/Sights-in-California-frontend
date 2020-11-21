@@ -18,6 +18,28 @@ class SignUp extends Component {
             [e.target.name]: value,
         });
     };
+    handleInputValidation = () => {
+        if (
+            this.state.first_name !== "" ||
+            this.state.username !== "" ||
+            this.state.password !== "" ||
+            this.state.city !== ""
+        ) {
+            return (
+                <Link to='/login'>
+                    <button
+                        className='signup-button'
+                        onClick={(e) => {
+                            this.handleSignUpSubmit(e);
+                            this.clearForm();
+                        }}
+                    >
+                        Sign Up
+                    </button>
+                </Link>
+            );
+        }
+    };
     handleSignUpSubmit = (e) => {
         e.preventDefault();
         if (
@@ -30,57 +52,30 @@ class SignUp extends Component {
                 signin_error: "ALL INPUTS ARE REQUIRED",
             });
         } else {
-            const { first_name, username, password, city } = this.state;
-            this.setState({
-                confirm_signup: true,
-                signin_error: "",
-            });
+            const { username, first_name, password, city } = this.state;
+            fetch(
+                `https://frozen-reaches-24867.herokuapp.com/api/users/${username}`
+            )
+                .then((res) => res.json())
+                .then((user) => {
+                    if (!user) {
+                        this.setState({
+                            signin_error: "Sorry this username already exists",
+                        });
+                    } else {
+                        const user = {
+                            first_name,
+                            username,
+                            password,
+                            city,
+                        };
+                        this.props.handleAddUser(user);
+                        console.log(user);
+                    }
+                });
         }
     };
-    handlePostNewUser = () => {
-        const { username, first_name, password, city } = this.state;
-        fetch(
-            `https://frozen-reaches-24867.herokuapp.com/api/users/${username}`
-        )
-            .then((res) => res.json())
-            .then((user) => {
-                if (!user) {
-                    this.setState({
-                        signin_error: "Sorry this username already exists",
-                    });
-                } else {
-                    const user = {
-                        first_name,
-                        username,
-                        password,
-                        city,
-                    };
-                    this.props.handleAddUser(user);
-                    console.log(user);
-                }
-            });
-    };
-    handleConfirmInfo = () => {
-        if (this.state.confirm_signup && this.state.signin_error === "") {
-            return (
-                <div className='confirm-signup'>
-                    <h2>
-                        {this.state.first_name} from {this.state.city}
-                    </h2>
-                    <div className='confirm-wrapper'>
-                        <Link to={`/login`}>
-                            <button
-                                className='confirm-btn'
-                                onClick={this.handlePostNewUser}
-                            >
-                                Confirm
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-            );
-        }
-    };
+
     clearForm = () => {
         document.getElementById("user-signup").reset();
     };
@@ -90,7 +85,6 @@ class SignUp extends Component {
                 <h1>Sign Up</h1>
                 <div>
                     <span>{this.state.signin_error}</span>
-                    {this.handleConfirmInfo()}
                     <form id='user-signup'>
                         <label>First Name</label>
                         <input
@@ -125,15 +119,7 @@ class SignUp extends Component {
                             onChange={this.handleChange}
                             required
                         ></input>
-                        <button
-                            className='signup-button'
-                            onClick={(e) => {
-                                this.handleSignUpSubmit(e);
-                                this.clearForm();
-                            }}
-                        >
-                            Sign Up
-                        </button>
+                        {this.handleInputValidation()}
                     </form>
                 </div>
                 <div className='back-div signup-back'>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FaEyeSlash } from "react-icons/fa";
 
 class BookmarkedCards extends Component {
     state = {};
@@ -14,7 +15,7 @@ class BookmarkedCards extends Component {
                             )
                         }
                     >
-                        Delete Bookmark?
+                        <FaEyeSlash />
                     </button>
                 </div>
                 <img src={this.props.sight.image} alt={this.props.sight.name} />
