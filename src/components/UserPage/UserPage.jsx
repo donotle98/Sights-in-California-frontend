@@ -9,6 +9,8 @@ import BookmarkedCards from "../CardList/BookmarkedCards";
 class UserPage extends Component {
     static contextType = AppContext;
     state = {
+        first_name: "",
+        city: "",
         userBookmarks: [],
         citySights: [],
         showBookmarksFilter: false,
@@ -93,6 +95,10 @@ class UserPage extends Component {
                                             handleAddBookmarks={
                                                 this.handleAddBookmarks
                                             }
+                                            userBookmarks={
+                                                this.state.userBookmarks
+                                            }
+                                            firstName={this.context.first_name}
                                         />
                                     );
                                 });
@@ -114,6 +120,7 @@ class UserPage extends Component {
                                     sight={sight}
                                     handleAddBookmarks={this.handleAddBookmarks}
                                     userBookmarks={this.state.userBookmarks}
+                                    firstName={this.context.first_name}
                                 />
                             );
                         })}
@@ -135,6 +142,7 @@ class UserPage extends Component {
                                             this.handleAddBookmarks
                                         }
                                         userBookmarks={this.state.userBookmarks}
+                                        firstName={this.context.first_name}
                                     />
                                 );
                             });
@@ -196,13 +204,17 @@ class UserPage extends Component {
     componentDidMount() {
         this.fetchCitySights();
         this.fetchBookmarkedSights();
+        this.setState({
+            first_name: this.context.first_name,
+            city: this.context.city,
+        });
     }
     render() {
         return (
             <div className='user-page'>
                 <header>
-                    <h1>Welcome, {this.context.first_name}</h1>
-                    <h2>from {this.context.city}</h2>
+                    <h1>Welcome, {this.state.first_name}</h1>
+                    <h2>from {this.state.city}</h2>
                     <div className='submit-sect'>
                         <span className='logout-link submit-link'>
                             <Link to='/' onClick={this.context.handleLogout}>

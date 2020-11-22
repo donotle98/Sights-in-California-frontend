@@ -5,15 +5,6 @@ class UserCardList extends Component {
     state = {
         isBookmarked: false,
     };
-    checkBookmarks = () => {
-        this.props.userBookmarks.map((bookmark) => {
-            if (bookmark.id === this.props.sight.id) {
-                return this.setState({
-                    isBookmarked: true,
-                });
-            }
-        });
-    };
     handleBookmark = () => {
         if (!this.state.isBookmarked) {
             return (
