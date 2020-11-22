@@ -11,6 +11,7 @@ class SignUp extends Component {
         city: "",
         signin_error: "",
         confirm_signup: false,
+        signup_pressed: false,
     };
     handleChange = (e) => {
         const value = e.target.value;
@@ -20,62 +21,51 @@ class SignUp extends Component {
     };
     handleInputValidation = () => {
         if (
-            this.state.first_name !== "" ||
-            this.state.username !== "" ||
-            this.state.password !== "" ||
+            this.state.first_name !== "" &&
+            this.state.username !== "" &&
+            this.state.password !== "" &&
             this.state.city !== ""
         ) {
             return (
-                <Link to='/login'>
-                    <button
-                        className='signup-button'
-                        onClick={(e) => {
-                            this.handleSignUpSubmit(e);
-                            this.clearForm();
-                        }}
-                    >
-                        Sign Up
-                    </button>
-                </Link>
+                <button
+                    className='signup-button'
+                    onClick={(e) => {
+                        e.preventDefault();
+                        const adduser = {
+                            first_name: this.state.first_name,
+                            username: this.state.username,
+                            password: this.state.password,
+                            city: this.state.city,
+                        };
+                        this.props.handleAddUser(adduser);
+
+                        this.setState({
+                            signup_pressed: true,
+                        });
+                    }}
+                >
+                    Sign Up
+                </button>
             );
         }
     };
-    handleSignUpSubmit = (e) => {
-        e.preventDefault();
-        if (
-            this.state.first_name === "" ||
-            this.state.username === "" ||
-            this.state.password === "" ||
-            this.state.city === ""
-        ) {
-            this.setState({
-                signin_error: "ALL INPUTS ARE REQUIRED",
-            });
-        } else {
-            const { username, first_name, password, city } = this.state;
-            fetch(
-                `https://frozen-reaches-24867.herokuapp.com/api/users/${username}`
-            )
-                .then((res) => res.json())
-                .then((user) => {
-                    if (!user) {
-                        this.setState({
-                            signin_error: "Sorry this username already exists",
-                        });
-                    } else {
-                        const user = {
-                            first_name,
-                            username,
-                            password,
-                            city,
-                        };
-                        this.props.handleAddUser(user);
-                        console.log(user);
-                    }
-                });
+
+    handleConfirm = () => {
+        if (this.state.signup_pressed) {
+            return (
+                <div>
+                    <Link to={`/user/${this.state.username}`}>
+                        <button
+                            className='signup-button'
+                            onClick={() => this.clearForm()}
+                        >
+                            Confirm
+                        </button>
+                    </Link>
+                </div>
+            );
         }
     };
-
     clearForm = () => {
         document.getElementById("user-signup").reset();
     };
@@ -122,6 +112,7 @@ class SignUp extends Component {
                         {this.handleInputValidation()}
                     </form>
                 </div>
+                {this.handleConfirm()}
                 <div className='back-div signup-back'>
                     <button
                         onClick={() => {

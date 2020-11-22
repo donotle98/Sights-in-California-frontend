@@ -54,6 +54,8 @@ class App extends Component {
         })
             .then((res) => res.json())
             .then((token) => {
+                console.log(token);
+                console.log(user);
                 this.setState({
                     first_name: user.first_name,
                     username: user.username,
