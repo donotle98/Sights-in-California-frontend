@@ -37,8 +37,12 @@ class SignUp extends Component {
                             password: this.state.password,
                             city: this.state.city,
                         };
+                        localStorage.setItem(
+                            "first_name",
+                            this.state.first_name
+                        );
+                        localStorage.setItem("city", this.state.city);
                         this.props.handleAddUser(adduser);
-
                         this.setState({
                             signup_pressed: true,
                         });

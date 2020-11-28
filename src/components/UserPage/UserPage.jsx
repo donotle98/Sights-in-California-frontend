@@ -20,7 +20,9 @@ class UserPage extends Component {
     };
     fetchCitySights = () => {
         fetch(
-            `https://frozen-reaches-24867.herokuapp.com/api/sights/${this.context.city}`
+            `https://frozen-reaches-24867.herokuapp.com/api/sights/${localStorage.getItem(
+                "city"
+            )}`
         )
             .then((res) => res.json())
             .then((sights) => {
@@ -31,7 +33,9 @@ class UserPage extends Component {
     };
     fetchBookmarkedSights = () => {
         fetch(
-            `https://frozen-reaches-24867.herokuapp.com/api/bookmarks/${this.context.first_name}`
+            `https://frozen-reaches-24867.herokuapp.com/api/bookmarks/${localStorage.getItem(
+                "first_name"
+            )}`
         )
             .then((res) => res.json())
             .then((bookmarks) => {
@@ -205,8 +209,8 @@ class UserPage extends Component {
         this.fetchCitySights();
         this.fetchBookmarkedSights();
         this.setState({
-            first_name: this.context.first_name,
-            city: this.context.city,
+            first_name: localStorage.getItem("first_name"),
+            city: localStorage.getItem("city"),
         });
     }
     render() {

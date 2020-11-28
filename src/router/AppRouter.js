@@ -35,7 +35,7 @@ class App extends Component {
             city: "",
         });
         console.log("LOGGING OUT");
-        localStorage.removeItem("token");
+        localStorage.clear();
     };
     handleUser = (user) => {
         this.setState({

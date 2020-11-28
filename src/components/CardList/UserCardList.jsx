@@ -26,6 +26,15 @@ class UserCardList extends Component {
             );
         }
     };
+    componentDidMount() {
+        this.props.userBookmarks.map((bookmarks) => {
+            if (bookmarks.id === this.props.sight.id) {
+                this.setState({
+                    isBookmarked: true,
+                });
+            }
+        });
+    }
     render() {
         return (
             <div className='list-card'>

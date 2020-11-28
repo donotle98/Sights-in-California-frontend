@@ -94,6 +94,8 @@ class Login extends Component {
                         userExists: false,
                     });
                 } else {
+                    localStorage.setItem("first_name", user.first_name);
+                    localStorage.setItem("city", user.city);
                     this.props.handleUser({
                         first_name: user.first_name,
                         username: user.username,
