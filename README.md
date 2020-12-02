@@ -14,6 +14,23 @@
 <h4>The home is the landing page where users will first see</h4>
 <h4>AppRouter controls the routes of the different components</h4>
 
+<br />
+<br />
+
+<a href="https://sightsincali.donotle98.vercel.app/">Link to live app</a>
+
+<h1>Landing Page</h1>
+<img href="/Users/dono/Back_End_Projects/first-capstone/sights-in-cali/src/images/ScreenShotLandingPage.png" />
+
+<h1>Demo Page</h1>
+<img href="/Users/dono/Back_End_Projects/first-capstone/sights-in-cali/src/images/ScreenShotDemo.png"/>
+
+<h1>Login Page</h1>
+<img href="/Users/dono/Back_End_Projects/first-capstone/sights-in-cali/src/images/ScreenShotLogin.png"/>
+
+<h1>Sign Up Page</h1>
+<img href="/Users/dono/Back_End_Projects/first-capstone/sights-in-cali/src/images/ScreenShotSignUp.png"/>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
