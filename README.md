@@ -19,17 +19,20 @@
 
 <a href="https://sightsincali.donotle98.vercel.app/">Link to live app</a>
 
+<br />
+<br />
+
 <h1>Landing Page</h1>
-<img href="/Users/dono/Back_End_Projects/first-capstone/sights-in-cali/src/images/ScreenShotLandingPage.png" />
+<img src="src/images/ScreenShotLandingPage.png" />
 
 <h1>Demo Page</h1>
-<img href="/Users/dono/Back_End_Projects/first-capstone/sights-in-cali/src/images/ScreenShotDemo.png"/>
+<img src="src/images/ScreenShotDemo.png"/>
 
 <h1>Login Page</h1>
-<img href="/Users/dono/Back_End_Projects/first-capstone/sights-in-cali/src/images/ScreenShotLogin.png"/>
+<img src="src/images/ScreenShotLogin.png"/>
 
 <h1>Sign Up Page</h1>
-<img href="/Users/dono/Back_End_Projects/first-capstone/sights-in-cali/src/images/ScreenShotSignUp.png"/>
+<img src="src/images/ScreenShotSignUp.png"/>
 
 # Getting Started with Create React App
 
