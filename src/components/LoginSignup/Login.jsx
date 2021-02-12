@@ -1,16 +1,17 @@
-import React, { Component } from "react";
-import { withRouter, Link } from "react-router-dom";
-import { FaBackward } from "react-icons/fa";
-import "../assets/Login.css";
+import React, { Component } from 'react';
+import { withRouter, Link } from 'react-router-dom';
+import { FaBackward } from 'react-icons/fa';
+import '../assets/Login.css';
+import { API_URL } from '../../config';
 
 class Login extends Component {
     state = {
-        username: "",
-        password: "",
-        first_name: "",
-        city: "",
+        username: '',
+        password: '',
+        first_name: '',
+        city: '',
         user: [],
-        signin_error: "",
+        signin_error: '',
         userExists: true,
         userMatch: false,
     };
@@ -52,22 +53,22 @@ class Login extends Component {
             username: username,
             password: password,
         };
-        if ((username === "" && password === "") || password === "") {
+        if ((username === '' && password === '') || password === '') {
             this.setState({
-                signin_error: "USERNAME AND PASSWORD ARE REQUIRED",
+                signin_error: 'USERNAME AND PASSWORD ARE REQUIRED',
             });
         } else {
-            this.setState({ signin_error: "" });
-            fetch("https://frozen-reaches-24867.herokuapp.com/api/login", {
-                method: "POST",
+            this.setState({ signin_error: '' });
+            fetch(`${API_URL}/api/login`, {
+                method: 'POST',
                 headers: {
-                    "content-type": "application/json",
+                    'content-type': 'application/json',
                 },
                 body: JSON.stringify(user),
             })
                 .then((res) => res.json())
                 .then((token) => {
-                    localStorage.setItem("token", token.token);
+                    localStorage.setItem('token', token.token);
                 })
                 .then(() => {
                     this.handleSubmit(e);
@@ -76,17 +77,14 @@ class Login extends Component {
     };
     handleSubmit = (e) => {
         const { username } = this.state;
-        const token = localStorage.getItem("token");
-        this.setState({ signin_error: "" });
-        fetch(
-            `https://frozen-reaches-24867.herokuapp.com/api/login/${username}`,
-            {
-                method: "GET",
-                headers: {
-                    Authorization: "Bearer " + token,
-                },
-            }
-        )
+        const token = localStorage.getItem('token');
+        this.setState({ signin_error: '' });
+        fetch(`${API_URL}/api/login/${username}`, {
+            method: 'GET',
+            headers: {
+                Authorization: 'Bearer ' + token,
+            },
+        })
             .then((res) => res.json())
             .then((user) => {
                 if (!user.first_name) {
@@ -94,8 +92,8 @@ class Login extends Component {
                         userExists: false,
                     });
                 } else {
-                    localStorage.setItem("first_name", user.first_name);
-                    localStorage.setItem("city", user.city);
+                    localStorage.setItem('first_name', user.first_name);
+                    localStorage.setItem('city', user.city);
                     this.props.handleUser({
                         first_name: user.first_name,
                         username: user.username,
@@ -111,7 +109,7 @@ class Login extends Component {
             });
     };
     clearForm = () => {
-        document.getElementById("user-login").reset();
+        document.getElementById('user-login').reset();
     };
     render() {
         return (

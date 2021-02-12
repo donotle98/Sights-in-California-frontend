@@ -21,6 +21,17 @@ body {
     z-index: -1000;
 }
 
+.desktop {
+    display: none;
+}
+
+.mobile {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
+
 .intro-header .welcome {
     color: white;
     position: absolute;
@@ -188,14 +199,15 @@ body {
         background-size: cover;
         background-position: center center;
     }
-    .intro-header h1 {
-        text-align: left;
-        padding-left: 45px;
-        font-size: 45px;
+    .intro-header .welcome {
+        text-align: center;
+        font-size: 5rem;
+        text-shadow: 3px 3px 0px orange;
     }
     .header-p {
-        font-size: 22px;
-        right: 2rem;
+        font-size: 2rem;
+        right: 1rem;
+        text-shadow: 1px 1px 0px orange;
     }
     .list {
         display: grid;
@@ -217,5 +229,55 @@ body {
         margin: 0px;
         margin-right: 10px;
         margin-left: 10px;
+    }
+    .desktop {
+        display: block;
+    }
+    .mobile {
+        display: none;
+    }
+
+    .desk-nav {
+        position: fixed;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        height: 3rem;
+        z-index: 100;
+        box-shadow: 0px 3px 10px black;
+    }
+
+    .icon {
+        background-size: cover;
+        background-position: center center;
+        width: 2rem;
+        height: 2rem;
+        z-index: 100;
+        position: absolute;
+        left: 2rem;
+    }
+
+    .desk-nav ul {
+        display: flex;
+        position: absolute;
+        right: 2rem;
+        list-style-type: none;
+    }
+
+    .desk-nav ul li a {
+        display: flex;
+        justify-content: space-around;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        color: black;
+        font-size: 1.3rem;
+        transition: 0.5s;
+    }
+
+    .desk-nav ul li a:hover {
+        color: orange;
+        transition: 0.5s;
     }
 }

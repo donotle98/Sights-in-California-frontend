@@ -1,56 +1,70 @@
-import React, { Component } from "react";
-import "../assets/Signup.css";
-import { FaBackward } from "react-icons/fa";
-import { withRouter, Link } from "react-router-dom";
+import React, { Component } from 'react';
+import '../assets/Signup.css';
+import { FaBackward } from 'react-icons/fa';
+import { withRouter, Link, Redirect } from 'react-router-dom';
+import { API_URL } from '../../config';
 
 class SignUp extends Component {
     state = {
-        first_name: "",
-        username: "",
-        password: "",
-        city: "",
-        signin_error: "",
+        first_name: '',
+        username: '',
+        password: '',
+        city: '',
+        signin_error: '',
         confirm_signup: false,
-        signup_pressed: false,
     };
+
+    handleAddUser = (user) => {
+        fetch(`${API_URL}/api/users/`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        })
+            .then((res) => res.json())
+            .then((token) => {
+                console.log(token);
+                this.setState({
+                    first_name: token.newUser.first_name,
+                    username: token.newUser.username,
+                    city: token.newUser.city,
+                });
+                localStorage.setItem('token', token.token);
+                this.setState({
+                    confirm_signup: true,
+                });
+                return token;
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
+
     handleChange = (e) => {
         const value = e.target.value;
         this.setState({
             [e.target.name]: value,
         });
     };
-    handleInputValidation = () => {
+    handleInputValidation = (e) => {
+        const { first_name, username, password, city } = this.state;
         if (
-            this.state.first_name !== "" &&
-            this.state.username !== "" &&
-            this.state.password !== "" &&
-            this.state.city !== ""
+            first_name !== '' &&
+            username !== '' &&
+            password !== '' &&
+            city !== ''
         ) {
-            return (
-                <button
-                    className='signup-button'
-                    onClick={(e) => {
-                        e.preventDefault();
-                        const adduser = {
-                            first_name: this.state.first_name,
-                            username: this.state.username,
-                            password: this.state.password,
-                            city: this.state.city,
-                        };
-                        localStorage.setItem(
-                            "first_name",
-                            this.state.first_name
-                        );
-                        localStorage.setItem("city", this.state.city);
-                        this.props.handleAddUser(adduser);
-                        this.setState({
-                            signup_pressed: true,
-                        });
-                    }}
-                >
-                    Sign Up
-                </button>
-            );
+            e.preventDefault();
+            const newUser = {
+                first_name: first_name,
+                username: username,
+                password: password,
+                city: city,
+            };
+            localStorage.setItem('first_name', first_name);
+            localStorage.setItem('city', city);
+            this.handleAddUser(newUser);
         }
     };
 
@@ -71,7 +85,7 @@ class SignUp extends Component {
         }
     };
     clearForm = () => {
-        document.getElementById("user-signup").reset();
+        document.getElementById('user-signup').reset();
     };
     render() {
         return (
@@ -79,7 +93,10 @@ class SignUp extends Component {
                 <h1>Sign Up</h1>
                 <div>
                     <span>{this.state.signin_error}</span>
-                    <form id='user-signup'>
+                    <form
+                        id='user-signup'
+                        onSubmit={this.handleInputValidation}
+                    >
                         <label>First Name</label>
                         <input
                             type='text'
@@ -113,14 +130,17 @@ class SignUp extends Component {
                             onChange={this.handleChange}
                             required
                         ></input>
-                        {this.handleInputValidation()}
+                        <button type='submit'>
+                            <Link to={`/user/${this.state.username}`}>
+                                Submit
+                            </Link>
+                        </button>
                     </form>
                 </div>
-                {this.handleConfirm()}
                 <div className='back-div signup-back'>
                     <button
                         onClick={() => {
-                            this.props.history.push("/");
+                            this.props.history.push('/');
                         }}
                         className='back-button'
                     >

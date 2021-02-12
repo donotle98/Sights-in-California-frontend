@@ -1,23 +1,29 @@
-import React, { Component } from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import HomeRoute from "../components/HomeRoute";
-import Login from "../components/LoginSignup/Login";
-import SignUp from "../components/LoginSignup/SignUp";
-import AppContext from "../store/AppContext";
-import ProtectedRoute from "./ProtectedRoute";
-import UserPage from "../components/UserPage/UserPage";
-import Demo from "../components/Demo/Demo";
+import React, { Component } from 'react';
+import {
+    Switch,
+    Route,
+    BrowserRouter as Router,
+    Redirect,
+} from 'react-router-dom';
+import HomeRoute from '../components/HomeRoute';
+import Login from '../components/LoginSignup/Login';
+import SignUp from '../components/LoginSignup/SignUp';
+import AppContext from '../store/AppContext';
+import ProtectedRoute from './ProtectedRoute';
+import UserPage from '../components/UserPage/UserPage';
+import Demo from '../components/Demo/Demo';
+import { API_URL } from '../config';
 
 class App extends Component {
     state = {
         listSights: [],
-        first_name: "",
-        username: "",
-        city: "",
+        first_name: '',
+        username: '',
+        city: '',
     };
     fetchSightList = () => {
-        console.log("sights are being fetched");
-        fetch("https://frozen-reaches-24867.herokuapp.com/api/sights/")
+        console.log('sights are being fetched');
+        fetch(`${API_URL}/api/sights/`)
             .then((res) => res.json())
             .then((sight) => {
                 this.setState({
@@ -30,11 +36,11 @@ class App extends Component {
     }
     handleLogout = () => {
         this.setState({
-            first_name: "",
-            username: "",
-            city: "",
+            first_name: '',
+            username: '',
+            city: '',
         });
-        console.log("LOGGING OUT");
+        console.log('LOGGING OUT');
         localStorage.clear();
     };
     handleUser = (user) => {
@@ -44,34 +50,12 @@ class App extends Component {
             city: user.city,
         });
     };
-    handleAddUser = (user) => {
-        fetch("https://frozen-reaches-24867.herokuapp.com/api/users/", {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-            },
-            body: JSON.stringify(user),
-        })
-            .then((res) => res.json())
-            .then((token) => {
-                console.log(token);
-                console.log(user);
-                this.setState({
-                    first_name: user.first_name,
-                    username: user.username,
-                    city: user.city,
-                });
-                localStorage.setItem("token", token.token);
-            })
-            .catch((e) => {
-                console.log(e);
-            });
-    };
+
     handleAddSight = (sight) => {
-        fetch("https://frozen-reaches-24867.herokuapp.com/api/sights/", {
-            method: "POST",
+        fetch(`${API_URL}/api/sights/`, {
+            method: 'POST',
             header: {
-                "content-type": "application/json",
+                'content-type': 'application/json',
             },
             body: JSON.stringify(sight),
         })

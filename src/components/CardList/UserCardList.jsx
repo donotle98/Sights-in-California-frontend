@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { FaBookmark, FaCheckDouble } from "react-icons/fa";
+import React, { Component } from 'react';
+import { FaBookmark, FaCheckDouble } from 'react-icons/fa';
 
 class UserCardList extends Component {
     state = {
@@ -39,7 +39,12 @@ class UserCardList extends Component {
         return (
             <div className='list-card'>
                 <div>{this.handleBookmark()}</div>
-                <img src={this.props.sight.image} alt={this.props.sight.name} />
+                <div
+                    className='card-img'
+                    style={{
+                        backgroundImage: `url(${this.props.sight.image})`,
+                    }}
+                ></div>
                 <h2>{this.props.sight.name}</h2>
                 <h4>{this.props.sight.city}</h4>
                 <p>{this.props.sight.description}</p>

@@ -4,6 +4,9 @@ import './assets/HomeRoute.css';
 import CardList from './CardList/CardList';
 import AppContext from '../store/AppContext';
 import { FaAngleDoubleDown } from 'react-icons/fa';
+import { NavLink } from 'react-router-dom';
+import icon from './assets/favicon.png';
+
 import _ from 'lodash';
 
 class HomeRoute extends Component {
@@ -115,7 +118,28 @@ class HomeRoute extends Component {
         return (
             <div className='homeroute'>
                 <header className='intro-header'>
-                    <NavBar />
+                    <div className='mobile'>
+                        <NavBar />
+                    </div>
+                    <div className='desktop'>
+                        <div className='desk-nav'>
+                            <div
+                                className='icon'
+                                style={{ backgroundImage: `url(${icon})` }}
+                            ></div>
+                            <ul>
+                                <li>
+                                    <NavLink to='/login'>Login</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/signup'>Sign Up</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/demo'>Demo</NavLink>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <div>
                         {' '}
                         <h1 className='welcome'>Welcome to California!</h1>
