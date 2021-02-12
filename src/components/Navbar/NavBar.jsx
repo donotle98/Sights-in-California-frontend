@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-import { FaBars } from "react-icons/fa";
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import { FaBars } from 'react-icons/fa';
 
-import "../assets/NavBar.css";
+import '../assets/NavBar.css';
 
 class NavBar extends Component {
     state = {};
@@ -10,7 +10,7 @@ class NavBar extends Component {
         return (
             <div>
                 <div className='container'>
-                    <h1>
+                    <h1 className='nav-menu'>
                         <a href='#menu'>
                             <FaBars />
                         </a>

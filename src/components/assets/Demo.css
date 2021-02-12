@@ -8,8 +8,10 @@
     margin-bottom: 20px;
     color: orange;
 }
-.demo-page .back-div {
-    margin-bottom: 50px;
+.back-div {
+    position: fixed;
+    left: 2rem;
+    top: 0;
 }
 
 .demo-page h2 {
@@ -29,7 +31,7 @@
 .user-page-img {
     margin-top: 30px;
     height: 160px;
-    background-image: url("../../images/user-page.jpeg");
+    background-image: url('../../images/user-page.jpeg');
     background-size: 100%;
     background-repeat: no-repeat;
 }

@@ -9,11 +9,12 @@
     margin-bottom: 15px;
     padding: 10px;
     width: 40px;
+    z-index: 1000;
 }
 
 .container a {
     color: orange;
-    font-size: 25px;
+    font-size: 35px;
 }
 
 h1 a {
@@ -49,6 +50,7 @@ h1 a {
     background-color: rgba(48, 48, 48, 0.95);
     animation: 0.5s grow ease forwards;
     text-align: center;
+    z-index: 1000;
 }
 
 .nav_list {
@@ -76,7 +78,7 @@ h1 a {
 }
 
 .nav_list li::before {
-    content: "";
+    content: '';
     position: absolute;
     height: 2px;
     width: 0px;
@@ -109,7 +111,7 @@ h1 a {
     justify-content: center;
     background-color: orange;
     color: black;
-    content: "×";
+    content: '×';
     cursor: pointer;
     opacity: 0;
     animation: 0.7s fadeIn ease forwards 0.5s;
@@ -138,9 +140,11 @@ h1 a {
 @media all and (min-width: 800px) {
     .container a {
         font-size: 35px;
+        z-index: 100;
     }
     .container {
         padding-top: 20px;
-        padding-left: 20px;
+        padding-left: 0px;
+        z-index: 100;
     }
 }

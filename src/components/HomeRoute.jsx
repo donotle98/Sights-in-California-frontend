@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import NavBar from "./Navbar/NavBar";
-import "./assets/HomeRoute.css";
-import CardList from "./CardList/CardList";
-import AppContext from "../store/AppContext";
-import { FaAngleDoubleDown } from "react-icons/fa";
-import _ from "lodash";
+import React, { Component } from 'react';
+import NavBar from './Navbar/NavBar';
+import './assets/HomeRoute.css';
+import CardList from './CardList/CardList';
+import AppContext from '../store/AppContext';
+import { FaAngleDoubleDown } from 'react-icons/fa';
+import _ from 'lodash';
 
 class HomeRoute extends Component {
     static contextType = AppContext;
     state = {
         filterOn: false,
-        searchValue: "",
+        searchValue: '',
         searchFilter: false,
     };
     handleFilterClick = () => {
@@ -108,7 +108,7 @@ class HomeRoute extends Component {
         }
     };
     clearForm = () => {
-        document.getElementById("filter").reset();
+        document.getElementById('filter').reset();
     };
 
     render() {
@@ -117,8 +117,8 @@ class HomeRoute extends Component {
                 <header className='intro-header'>
                     <NavBar />
                     <div>
-                        {" "}
-                        <h1>Welcome to California!</h1>
+                        {' '}
+                        <h1 className='welcome'>Welcome to California!</h1>
                         <p className='header-p'>
                             Whether you live here, or you're just visiting,
                             there is always something to do
@@ -131,7 +131,7 @@ class HomeRoute extends Component {
                     </div>
                 </header>
                 <hr />
-                <div className='filter-btn'>
+                <div className='filter-btn' id='list'>
                     <button
                         className='confirm-btn'
                         onClick={this.handleFilterClick}
@@ -140,9 +140,7 @@ class HomeRoute extends Component {
                     </button>
                 </div>
                 {this.showFilter()}
-                <main className='list' id='list'>
-                    {this.showSights()}
-                </main>
+                <main className='list'>{this.showSights()}</main>
             </div>
         );
     }
